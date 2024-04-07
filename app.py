@@ -3,7 +3,7 @@ import plotly_express as px
 import streamlit as st
 
 vehicles_df = pd.read_csv("./vehicles_data.csv")
-
+print(px.__version__)
 st.title("Data Analysis for Vehicles")
 
 # ------------------------------------------------------------------------------------------------ #
