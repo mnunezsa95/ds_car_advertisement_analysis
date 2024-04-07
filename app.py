@@ -3,7 +3,6 @@ import plotly_express as px
 import streamlit as st
 
 vehicles_df = pd.read_csv("./vehicles_data.csv")
-print(px.__version__)
 st.title("Data Analysis for Vehicles")
 
 # ------------------------------------------------------------------------------------------------ #
@@ -34,7 +33,7 @@ st.header("Distribution Analysis")
 st.subheader("Distribution of Vehicle Price")
 price_dist = px.histogram(vehicles_df, x="price", nbins=50)
 price_dist.update_layout(
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Price",
     bargap=0.2,
 )
@@ -46,7 +45,7 @@ st.write(price_dist)
 st.subheader("Distribution of Vehicle Year")
 vehicle_year_dist = px.histogram(vehicles_df, x="model_year", nbins=200)
 vehicle_year_dist.update_layout(
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Year of Model",
     bargap=0.2,
 )
@@ -58,7 +57,7 @@ st.subheader("Distribution of Vehicle Make")
 vehicle_make_dist = px.histogram(vehicles_df, x="make")
 vehicle_make_dist.update_xaxes(tickangle=45)
 vehicle_make_dist.update_layout(
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Vehicle Make",
     bargap=0.2,
 )
@@ -77,7 +76,7 @@ vehicle_model_dist = px.histogram(x=top_n_models.index, y=top_n_models.values)
 vehicle_model_dist.update_xaxes(tickangle=45)
 vehicle_model_dist.update_layout(
     title_text=f"Currently Showing: Top {number_to_display}",
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Vehicle Model",
     bargap=0.2,
 )
@@ -90,7 +89,7 @@ st.write(vehicle_model_dist)
 st.subheader("Distribution of Vehicle Make by Condition")
 vehicle_make_cond_dist = px.histogram(vehicles_df, x="make", color="condition")
 vehicle_make_cond_dist.update_layout(
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Vehicle Make",
     height=800,
 )
@@ -101,7 +100,7 @@ st.write(vehicle_make_cond_dist)
 st.subheader("Distribution of Vehicle Paint Color")
 paint_color_dist = px.histogram(vehicles_df, x="paint_color")
 paint_color_dist.update_layout(
-    yaxis_title="Count",
+    yaxis_title="Frequency",
     xaxis_title="Vehicle Paint Color",
 )
 paint_color_dist.update_traces(marker_color="rgb(102, 166, 30)")
